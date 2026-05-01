@@ -21,7 +21,11 @@ st.markdown("""
 
 # Sidebar para controle da banca
 st.sidebar.header("Configurações do Modelo")
-L = st.sidebar.slider("Comprimento da Barra (L)", 1.0, 10.0, 5.0)
+# L = st.sidebar.slider("Comprimento da Barra (L)", 1.0, 10.0, 5.0)
+L =  st.sidebar.select_slider(
+    "Comprimento da Barra (L)",
+    options=[1, 2,3,4,5,6,7,8,9,10]
+)
 EA = st.sidebar.number_input("Rigidez Axial (EA)", value=1000.0)
 n_el = st.sidebar.select_slider(
     "Número de Elementos (n_el)",
