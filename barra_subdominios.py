@@ -17,21 +17,20 @@ st.markdown("""
 st.title("Discretização da matriz global")
 st.markdown("""
 **Objetivo:** Demonstrar o impacto do refinamento da malha ($h$-refinement) na estrutura da matriz de rigidez $[K]$.
+*Usar unidades consistentes.
 """)
 
 # Sidebar para controle da banca
 st.sidebar.header("Configurações do Modelo")
 # L = st.sidebar.slider("Comprimento da Barra (L)", 1.0, 10.0, 5.0)
-L =  st.sidebar.select_slider(
-    "Comprimento da Barra (mm)",
-    options=[1000, 2000,3000,4000,5000,6000,7000,8000,9000,10000]
-)
+#L =  st.sidebar.select_slider("Comprimento da Barra (mm)",options=[1000, 2000,3000,4000,5000,6000,7000,8000,9000,10000])
+L = st.sidebar.number_input("Comprimento da Barra (L)", value=200_000)
 # EA = st.sidebar.number_input("Rigidez Axial (EA)", value=1000.0)
-E = st.sidebar.number_input("Módulo de elasticidade (MPa)", value=200_000)
-A = st.sidebar.number_input("Área da seção transversal ($mm^2$)", value=90_000)
+E = st.sidebar.number_input("Módulo de elasticidade (E)", value=200_000)
+A = st.sidebar.number_input("Área da seção transversal (A)", value=90_000)
 EA = E*A
 n_el = st.sidebar.select_slider(
-    "Número de Elementos ($n_el$)",
+    "Número de Elementos ($n_{el}$)",
     options=[1, 2, 4, 8, 16, 32, 64]
 )
 
