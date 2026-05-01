@@ -28,7 +28,7 @@ L =  st.sidebar.select_slider(
 )
 # EA = st.sidebar.number_input("Rigidez Axial (EA)", value=1000.0)
 E = st.sidebar.number_input("Módulo de elasticidade (MPa)", value=200000)
-A = st.sidebar.number_input("Área da seção transversal (mm^2)", value=90000)
+A = st.sidebar.number_input("Área da seção transversal ($mm^2$)", value=90000)
 EA = E*A
 n_el = st.sidebar.select_slider(
     "Número de Elementos (n_el)",
