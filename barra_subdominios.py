@@ -23,10 +23,13 @@ st.markdown("""
 st.sidebar.header("Configurações do Modelo")
 # L = st.sidebar.slider("Comprimento da Barra (L)", 1.0, 10.0, 5.0)
 L =  st.sidebar.select_slider(
-    "Comprimento da Barra (L)",
-    options=[1, 2,3,4,5,6,7,8,9,10]
+    "Comprimento da Barra (mm)",
+    options=[1000, 2000,3000,4000,5000,6000,7000,8000,9000,10000]
 )
-EA = st.sidebar.number_input("Rigidez Axial (EA)", value=1000.0)
+# EA = st.sidebar.number_input("Rigidez Axial (EA)", value=1000.0)
+E = st.sidebar.number_input("Módulo de elasticidade (MPa)", value=200000)
+A = st.sidebar.number_input("Área da seção transversal (mm^2)", value=90000)
+EA = E*A
 n_el = st.sidebar.select_slider(
     "Número de Elementos (n_el)",
     options=[1, 2, 4, 8, 16, 32, 64]
