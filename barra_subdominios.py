@@ -16,7 +16,7 @@ st.markdown("""
 
 st.title("Discretização da matriz global")
 st.markdown("""
-**Objetivo:** Demonstrar o impacto do refinamento da malha ($h$-refinement) na estrutura da matriz de rigidez ($[K]$).
+**Objetivo:** Demonstrar o impacto do refinamento da malha ($h$-refinement) na estrutura da matriz de rigidez $[K]$.
 """)
 
 # Sidebar para controle da banca
@@ -75,11 +75,10 @@ with col1:
         st.info("A matriz excedeu o limite de visualização tabular. Verifique o padrão de esparsidade ao lado.")
 
 with col2:
-    st.subheader("Sparsity Pattern (Esparsidade)")
+    st.subheader(f"Estrutura da Matriz Global {n_nodes}x{n_nodes}")
     fig2, ax2 = plt.subplots(figsize=(6, 6))
     
     # Plot da estrutura da matriz
     sns.heatmap(K, annot=(n_el <= 8), fmt=".0f", cmap="Blues", cbar=False, ax=ax2, 
                 linewidths=0.5 if n_el <= 16 else 0)
-    ax2.set_title(f"Estrutura da Matriz Global {n_nodes}x{n_nodes}")
     st.pyplot(fig2)
