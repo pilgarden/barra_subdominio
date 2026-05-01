@@ -2,4 +2,3 @@ streamlit
 numpy
 matplotlib
 seaborn
-jupyter_server_config
