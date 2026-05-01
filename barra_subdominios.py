@@ -27,8 +27,8 @@ L =  st.sidebar.select_slider(
     options=[1000, 2000,3000,4000,5000,6000,7000,8000,9000,10000]
 )
 # EA = st.sidebar.number_input("Rigidez Axial (EA)", value=1000.0)
-E = st.sidebar.number_input("Módulo de elasticidade (MPa)", value=200000)
-A = st.sidebar.number_input("Área da seção transversal ($mm^2$)", value=90000)
+E = st.sidebar.number_input("Módulo de elasticidade (MPa)", value=200_000)
+A = st.sidebar.number_input("Área da seção transversal ($mm^2$)", value=90_000)
 EA = E*A
 n_el = st.sidebar.select_slider(
     "Número de Elementos ($n_el$)",
@@ -69,7 +69,7 @@ with col1:
             ax.text(x, 0.1, f"{i}", ha='center', fontsize=8, color='#1e293b')
     
     ax.set_ylim(-0.5, 0.5)
-    ax.set_title(f"Malha com {n_el} elementos | h = {le:.3f} m")
+    ax.set_title(f"Malha com {n_el} elementos | h = {le:.0f} mm")
     ax.axis('off')
     st.pyplot(fig)
 
