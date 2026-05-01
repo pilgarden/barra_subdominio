@@ -31,7 +31,7 @@ E = st.sidebar.number_input("Módulo de elasticidade (MPa)", value=200000)
 A = st.sidebar.number_input("Área da seção transversal ($mm^2$)", value=90000)
 EA = E*A
 n_el = st.sidebar.select_slider(
-    "Número de Elementos (n_el)",
+    "Número de Elementos ($n_el$)",
     options=[1, 2, 4, 8, 16, 32, 64]
 )
 
