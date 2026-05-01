@@ -14,10 +14,9 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-st.title("🔬 Discretização e Topologia da Matriz Global")
+st.title("Discretização da matriz global")
 st.markdown("""
-**Objetivo:** Demonstrar o impacto do refinamento da malha ($h$-refinement) na estrutura da Matriz de Rigidez ($K$).
-*Base Teórica: Bathe (2014) e Zienkiewicz (2013).*
+**Objetivo:** Demonstrar o impacto do refinamento da malha ($h$-refinement) na estrutura da matriz de rigidez ($[K]$).
 """)
 
 # Sidebar para controle da banca
@@ -84,25 +83,3 @@ with col2:
                 linewidths=0.5 if n_el <= 16 else 0)
     ax2.set_title(f"Estrutura da Matriz Global {n_nodes}x{n_nodes}")
     st.pyplot(fig2)
-
-# Seção de Fundamentação Matemática (Uso de Raw Strings para evitar SyntaxWarning)
-st.divider()
-st.subheader("Análise de Rigidez e Condicionamento")
-
-c1, c2 = st.columns(2)
-with c1:
-    st.write("**Formulação de Equilíbrio:**")
-    st.latex(r"\{F\} = [K] \{U\}")
-    st.write("**Matriz do Elemento:**")
-    st.latex(r"k_e = \frac{EA}{l_e} \begin{bmatrix} 1 & -1 \\ -1 & 1 \end{bmatrix}")
-
-with c2:
-    # Cálculo do número de condicionamento (cond)
-    cond_number = np.linalg.cond(K)
-    st.write("**Número de Condicionamento:**")
-    st.latex(r"\kappa(K) = ||K|| \cdot ||K^{-1}||")
-    st.metric("Valor Calculado", f"{cond_number:.2e}")
-
-st.markdown("""
-> **Observação para a Banca:** Note que o aumento do número de elementos reduz o erro de truncamento da solução física, mas o **número de condicionamento** aumenta, tornando o sistema mais sensível a erros numéricos de precisão finita. Em problemas 1D, a matriz é estritamente tridiagonal, resultando em uma banda constante.
-""")
