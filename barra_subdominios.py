@@ -68,7 +68,7 @@ with col1:
             ax.text(x, 0.1, f"{i}", ha='center', fontsize=8, color='#1e293b')
     
     ax.set_ylim(-0.5, 0.5)
-    ax.set_title(f"Malha com {n_el} elementos | h = {le:.0f} mm")
+    ax.set_title(f"Malha com {n_el} elementos | h = {le:.0f}")
     ax.axis('off')
     st.pyplot(fig)
 
